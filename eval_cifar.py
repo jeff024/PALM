@@ -4,7 +4,6 @@ from util.loaders.args_loader import get_args
 import torch
 import numpy as np
 from util.evaluations.mahalanobis import *
-from util.evaluations.metrics import compute_traditional_ood
 import shutil
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
