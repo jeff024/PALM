@@ -35,7 +35,7 @@ class PALM(nn.Module):
         sum_Q = torch.sum(Q)
         if torch.isinf(sum_Q):
             self.protos = F.normalize(self.protos, dim=1, p=2)
-            out = torch.matmul(features, self.ws(self.protos.detach()).T)
+            out = torch.matmul(features, self.protos.detach().T)
             Q = torch.exp(out.detach() / self.epsilon).t()# Q is K-by-B for consistency with notations from our paper
             sum_Q = torch.sum(Q)
         Q /= sum_Q
